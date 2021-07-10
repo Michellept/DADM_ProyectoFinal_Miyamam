@@ -6,7 +6,7 @@
     <string name="title_notifications">Notifications</string>
 
     <!-- API -->
-    <string name="api">http://bordados.noobhuman.ninja/</string>
+    <string name="api">https://miyamamapp.herokuapp.com/</string>
     <!-- End API -->
 
 

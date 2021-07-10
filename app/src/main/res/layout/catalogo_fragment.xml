@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.Catalogo">
 
-    <TextView
+    <ListView
+        android:id="@+id/listview_productos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="CATALOGO" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

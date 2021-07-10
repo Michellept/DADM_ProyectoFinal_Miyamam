@@ -53,10 +53,10 @@ abstract class MyUtils {
 
     fun consumeGet(c: Context, url: String) {
         val stringRequest = StringRequest(Request.Method.GET, url,
-                Response.Listener<String> { response ->
+                { response ->
                     formatResponse(response)
                 },
-                Response.ErrorListener { println("Error al consumir:\n$it") }
+                { println("Error al consumir:\n$it") }
         )
         Volley.newRequestQueue(c).add(stringRequest)
     }
