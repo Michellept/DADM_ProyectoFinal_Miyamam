@@ -2,12 +2,14 @@ package vs.layour.dadm_proyectofinal_miyamam.Utils
 
 import android.content.Context
 import android.widget.Toast
+import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import vs.layour.dadm_proyectofinal_miyamam.models.LocalDBManager
 import vs.layour.dadm_proyectofinal_miyamam.models.Usuario
 
-class MyUtils {
+abstract class MyUtils {
 
     companion object {
         fun String.toas(c: Context) {
@@ -30,26 +32,49 @@ class MyUtils {
             dbManager.removeUsr()
         }
     }
-}
-
-/*    fun cosumePost(c:Context, url: String): String{
-
-        // Instantiate the RequestQueue.
-        val queue = Volley.newRequestQueue(c)
-        val url = "http://bordados.noobhuman.ninja/"
 
 
-        // Request a string response from the provided URL.
-        val stringRequest = StringRequest(Request.Method.GET, url,
-            Response.Listener<String> { response ->
-                // Display the first 500 characters of the response string.
-                textView.text = "Response is: ${response.substring(0, 500)}"
-            },
-            Response.ErrorListener { textView.text = "That didn't work!" })
+    fun consumePost(c: Context, url: String, params : MutableMap<String,String>) {
+        val stringRequest = object : StringRequest(Request.Method.POST, url,
+                Response.Listener { response ->
+                    formatResponse(response)
+                },
+                Response.ErrorListener { println("Error al consumir:\n$it") }
 
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest)
-
-
+        ) {
+            override fun getParams(): MutableMap<String, String> {
+                return params
+            }
+        }
+        Volley.newRequestQueue(c).add(stringRequest)
     }
-*/
+
+
+
+    fun consumeGet(c: Context, url: String) {
+        val stringRequest = StringRequest(Request.Method.GET, url,
+                Response.Listener<String> { response ->
+                    formatResponse(response)
+                },
+                Response.ErrorListener { println("Error al consumir:\n$it") }
+        )
+        Volley.newRequestQueue(c).add(stringRequest)
+    }
+
+    fun consumeGet(c: Context, url: String, params : MutableMap<String,String>) {
+        val stringRequest = object : StringRequest(Request.Method.GET, url,
+                Response.Listener<String> { response ->
+                    formatResponse(response)
+                },
+                Response.ErrorListener { println("Error al consumir:\n$it") }
+        ){
+            override fun getParams(): MutableMap<String, String> {
+                return params
+            }
+        }
+        Volley.newRequestQueue(c).add(stringRequest)
+    }
+
+
+    abstract fun formatResponse(response: String)
+}
