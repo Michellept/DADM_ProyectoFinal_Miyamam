@@ -2,8 +2,10 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".OnlyProductoActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -51,6 +53,7 @@
                     android:layout_height="81dp"
                     android:text="Descripcion" />
                 <TextView
+                    android:id="@+id/txt_categoria_pro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Categoria:">

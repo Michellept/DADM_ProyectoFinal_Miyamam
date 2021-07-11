@@ -1,63 +1,83 @@
 package vs.layour.dadm_proyectofinal_miyamam.adapters
 
 import android.content.Context
-import android.text.Html
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import vs.layour.dadm_proyectofinal_miyamam.OnlyProductoActivity
 import vs.layour.dadm_proyectofinal_miyamam.R
+import vs.layour.dadm_proyectofinal_miyamam.Utils.MyUtils
 import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
 
-class ProductoAdapter (val context: Context, val layout:Int, val lista:ArrayList<ListaProductoItem>):BaseAdapter(){
-    override fun getCount(): Int {
-        return lista.size
+ class ProductoAdapter(
+    val context: Context,
+    val res: Int,
+    val list: ArrayList<ListaProductoItem>
+) : RecyclerView.Adapter<ProductoAdapter.ProductosVH>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoAdapter.ProductosVH {
+        val vh = ProductosVH(LayoutInflater.from(context).inflate(res, null))
+        return vh
     }
 
-    override fun getItem(position: Int): Any {
-        return lista[position]
+    override fun onBindViewHolder(holder: ProductosVH, position: Int) {
+        val producto = list[position]
+        holder.bind(producto)
     }
 
-    override fun getItemId(position: Int): Long {
-        return -1
+    override fun getItemCount(): Int {
+        return list.size
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val myView = inflater.inflate(layout, null)
+    inner class ProductosVH(view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(producto: ListaProductoItem) {
 
-        val item = myView.findViewById<CardView>(R.id.item_producto)
-        val imagen = myView.findViewById<ImageView>(R.id.imageView_producto)
-        val nombre = myView.findViewById<TextView>(R.id.txt_nombreproducto)
-        val precio = myView.findViewById<TextView>(R.id.txt_precioproducto)
-        val des = myView.findViewById<TextView>(R.id.txt_desproducto)
+            val item :CardView= itemView.findViewById(R.id.item_producto)
+            val imagen: ImageView = itemView.findViewById(R.id.imageView_producto)
+            val nombre: TextView = itemView.findViewById(R.id.txt_nombreproducto)
+            val precio: TextView = itemView.findViewById(R.id.txt_precioproducto)
+        
 
-        //Cargar una imagen desde la URL
-        //Picasso.get().load(lista[position].images[0].src).into(imagen)
+            //val des = myView.findViewById<TextView>(R.id.txt_categoria_pro)
 
-        /*
-          producto.photo?.let {
-                var urlPhoto = itemView.resources.getString(R.string.api)
-                urlPhoto += "assets/images/$it"
+            nombre.text = producto.name
+            precio.text = producto.price
+            // des.text= Html.fromHtml(lista[position].shortDescription)
 
-                Picasso.get().load(urlPhoto).into(imgProduct)
+
+            //Cargar una imagen desde la URL
+            producto.images?.let {
+                var urlphoto = itemView.resources.getString(R.string.api)
+                urlphoto += "assets/images/$it"
+
+                Picasso.get().load(urlphoto).into(imagen)
             }
-         */
-        lista[position].images[0].src.let {
-            var urlPhoto = it
-            Picasso.get().load(urlPhoto).into(imagen);
+
+            /*
+              img.setOnClickListener {
+                Toast.makeText(context, "${pelicula.id}", Toast.LENGTH_SHORT).show()
+            }*/
+
+            item.setOnClickListener {
+                val intent = Intent(context, OnlyProductoActivity::class.java)
+                //intent.putStringArrayListExtra("PRODUCTO", lista[position])
+                context.startActivity(intent)
+
+            }
+
+
         }
-
-        nombre.text=lista[position].name
-        precio.text=lista[position].price
-        //des.text= Html.fromHtml(lista[position].shortDescription)
-
-        return myView
-
-
     }
+
 }
+
+
+
+
+
+

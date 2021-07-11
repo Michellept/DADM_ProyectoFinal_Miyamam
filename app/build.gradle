@@ -12,7 +12,7 @@ android {
     }
     defaultConfig {
         applicationId "vs.layour.dadm_proyectofinal_miyamam"
-        minSdkVersion 25
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
