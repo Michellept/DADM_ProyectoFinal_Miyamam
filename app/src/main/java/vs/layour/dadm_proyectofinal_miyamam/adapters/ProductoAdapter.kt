@@ -38,6 +38,15 @@ class ProductoAdapter (val context: Context, val layout:Int, val lista:ArrayList
 
         //Cargar una imagen desde la URL
         //Picasso.get().load(lista[position].images[0].src).into(imagen)
+
+        /*
+          producto.photo?.let {
+                var urlPhoto = itemView.resources.getString(R.string.api)
+                urlPhoto += "assets/images/$it"
+
+                Picasso.get().load(urlPhoto).into(imgProduct)
+            }
+         */
         lista[position].images[0].src.let {
             var urlPhoto = it
             Picasso.get().load(urlPhoto).into(imagen);
@@ -45,7 +54,7 @@ class ProductoAdapter (val context: Context, val layout:Int, val lista:ArrayList
 
         nombre.text=lista[position].name
         precio.text=lista[position].price
-        des.text= Html.fromHtml(lista[position].shortDescription)
+        //des.text= Html.fromHtml(lista[position].shortDescription)
 
         return myView
 
