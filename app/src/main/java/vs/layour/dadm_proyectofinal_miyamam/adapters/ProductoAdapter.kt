@@ -9,12 +9,11 @@ import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import vs.layour.dadm_proyectofinal_miyamam.OnlyProductoActivity
 import vs.layour.dadm_proyectofinal_miyamam.R
-import vs.layour.dadm_proyectofinal_miyamam.Utils.MyUtils
 import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
+import vs.layour.dadm_proyectofinal_miyamam.ui.OnlyProduct
 
- class ProductoAdapter(
+abstract class ProductoAdapter(
     val context: Context,
     val res: Int,
     val list: ArrayList<ListaProductoItem>
@@ -37,11 +36,11 @@ import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
     inner class ProductosVH(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(producto: ListaProductoItem) {
 
-            val item :CardView= itemView.findViewById(R.id.item_producto)
+            val item: CardView = itemView.findViewById(R.id.item_producto)
             val imagen: ImageView = itemView.findViewById(R.id.imageView_producto)
             val nombre: TextView = itemView.findViewById(R.id.txt_nombreproducto)
             val precio: TextView = itemView.findViewById(R.id.txt_precioproducto)
-        
+
 
             //val des = myView.findViewById<TextView>(R.id.txt_categoria_pro)
 
@@ -51,29 +50,18 @@ import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
 
 
             //Cargar una imagen desde la URL
-            producto.images?.let {
-                var urlphoto = itemView.resources.getString(R.string.api)
-                urlphoto += "assets/images/$it"
-
-                Picasso.get().load(urlphoto).into(imagen)
+            producto.images[0].src?.let {
+                Picasso.get().load(it).into(imagen)
             }
 
-            /*
-              img.setOnClickListener {
-                Toast.makeText(context, "${pelicula.id}", Toast.LENGTH_SHORT).show()
-            }*/
-
-            item.setOnClickListener {
-                val intent = Intent(context, OnlyProductoActivity::class.java)
-                //intent.putStringArrayListExtra("PRODUCTO", lista[position])
-                context.startActivity(intent)
-
-            }
-
+          item.setOnClickListener{
+              verproducto(producto)
+          }
 
         }
     }
 
+    abstract fun verproducto(producto: ListaProductoItem)
 }
 
 

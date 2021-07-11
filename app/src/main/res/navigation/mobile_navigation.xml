@@ -8,7 +8,11 @@
         android:id="@+id/navigation_catalogo"
         android:name="vs.layour.dadm_proyectofinal_miyamam.ui.Catalogo"
         android:label="catalogo_fragment"
-        tools:layout="@layout/catalogo_fragment" />
+        tools:layout="@layout/catalogo_fragment" >
+        <action
+            android:id="@+id/action_navigation_catalogo_to_onlyProduct"
+            app:destination="@id/onlyProduct" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_miPerfil"
         android:name="vs.layour.dadm_proyectofinal_miyamam.ui.MiPerfil"
@@ -19,4 +23,13 @@
         android:name="vs.layour.dadm_proyectofinal_miyamam.ui.micarrito"
         android:label="micarrito_fragment"
         tools:layout="@layout/micarrito_fragment" />
+    <fragment
+        android:id="@+id/onlyProduct"
+        android:name="vs.layour.dadm_proyectofinal_miyamam.ui.OnlyProduct"
+        android:label="only_product_fragment"
+        tools:layout="@layout/only_product_fragment" >
+        <action
+            android:id="@+id/action_onlyProduct_to_navigation_catalogo"
+            app:destination="@id/navigation_catalogo" />
+    </fragment>
 </navigation>
