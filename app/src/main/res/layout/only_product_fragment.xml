@@ -21,15 +21,15 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        android:layout_marginTop="220dp"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="511dp"
+        android:layout_marginTop="220dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -44,48 +44,53 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Descripcion" />
+                android:text="Descripcion"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_desproducto"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:text="Descripcion" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Categoria/s:"/>
+                android:text="Categoria/s:"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txt_categoria_pro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Categoria:"/>
+                android:text="Categoria:" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Info. Invenvario:"/>
+                android:text="Info. Invenvario:"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/viewproducto_info_inventario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?android:attr/colorActivatedHighlight"
-                android:text="Info. Invenvario:"/>
+                android:text="Info. Invenvario:"
+                android:textColor="?android:attr/colorActivatedHighlight" />
 
             <TextView
-                android:layout_marginLeft="300dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="300dp"
                 android:text="$"
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />
+
             <TextView
-                android:layout_marginLeft="300dp"
                 android:id="@+id/txt_precioproducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="300dp"
                 android:text="PRECIO"
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />

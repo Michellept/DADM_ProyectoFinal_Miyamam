@@ -33,7 +33,7 @@ class OnlyProduct : Fragment() {
         viewModel.getroductoSelect.observe(viewLifecycleOwner, {
             //binding.imageViewproducto.setImageResource(it.images)
             //Cargar una imagen desde la URL
-            it.images[0].src?.let {
+            it.images[0].src.let {
                 Picasso.get().load(it).into(binding.imageViewproducto)
             }
             binding.txtNombreproducto.setText(it.name)
