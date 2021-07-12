@@ -14,11 +14,6 @@
             app:destination="@id/onlyProduct" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_miPerfil"
-        android:name="vs.layour.dadm_proyectofinal_miyamam.ui.MiPerfil"
-        android:label="my_perfil_fragment"
-        tools:layout="@layout/my_perfil_fragment" />
-    <fragment
         android:id="@+id/navigation_micarrito"
         android:name="vs.layour.dadm_proyectofinal_miyamam.ui.micarrito"
         android:label="micarrito_fragment"

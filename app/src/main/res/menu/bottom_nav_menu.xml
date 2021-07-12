@@ -11,9 +11,5 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Catalogo" />
 
-    <item
-        android:id="@+id/navigation_miPerfil"
-        android:icon="@drawable/usuario"
-        android:title="Perfil" />
 
 </menu>
