@@ -53,7 +53,7 @@ class OnlyProduct : Fragment() {
             binding.viewproductoInfoInventario.setText(it.stockStatus)
 
             binding.fabAddcarritoOnlyproduct.setOnClickListener{
-
+                
                 findNavController().navigate(R.id.action_onlyProduct_to_navigation_micarrito)
 
             }

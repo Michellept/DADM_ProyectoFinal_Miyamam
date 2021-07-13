@@ -190,7 +190,7 @@ class LocalDBManager(
             )
             resultados.add(carrito
             )
-            
+
         }
         db.close()
         return resultados
