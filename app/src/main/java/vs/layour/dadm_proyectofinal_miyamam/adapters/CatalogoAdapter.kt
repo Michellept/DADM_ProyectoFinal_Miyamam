@@ -1,7 +1,6 @@
 package vs.layour.dadm_proyectofinal_miyamam.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,15 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import vs.layour.dadm_proyectofinal_miyamam.R
 import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
-import vs.layour.dadm_proyectofinal_miyamam.ui.OnlyProduct
 
-abstract class ProductoAdapter(
+abstract class CatalogoAdapter(
     val context: Context,
     val res: Int,
     val list: ArrayList<ListaProductoItem>
-) : RecyclerView.Adapter<ProductoAdapter.ProductosVH>() {
+) : RecyclerView.Adapter<CatalogoAdapter.ProductosVH>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoAdapter.ProductosVH {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogoAdapter.ProductosVH {
         val vh = ProductosVH(LayoutInflater.from(context).inflate(res, null))
         return vh
     }
@@ -41,8 +39,6 @@ abstract class ProductoAdapter(
             val nombre: TextView = itemView.findViewById(R.id.txt_nombreproducto)
             val precio: TextView = itemView.findViewById(R.id.txt_precioproducto)
 
-
-
             //val des = myView.findViewById<TextView>(R.id.txt_categoria_pro)
 
             nombre.text = producto.name
@@ -53,7 +49,10 @@ abstract class ProductoAdapter(
             //Cargar una imagen desde la URL
             producto.images[0].src?.let {
                 Picasso.get().load(it).into(imagen)
-            }
+            println("IMAGENN---------${it}")
+            }?: println("--------------------------")
+
+
 
           item.setOnClickListener{
               verproducto(producto)
