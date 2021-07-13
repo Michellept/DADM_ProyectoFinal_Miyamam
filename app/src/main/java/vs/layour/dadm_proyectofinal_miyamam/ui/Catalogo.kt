@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -57,11 +59,22 @@ class Catalogo : Fragment() {
                        findNavController().navigate(R.id.action_navigation_catalogo_to_onlyProduct)
                     }
 
-                }
+                    }
 
 
                 binding.listviewProductos.layoutManager = GridLayoutManager(view.context, 1)
-                    //ProductoAdapter(view.context, R.layout.cardproductos, respuesta)
+                //ProductoAdapter(view.context, R.layout.cardproductos, respuesta)
+
+
+
+               /* binding.editSearch.doOnTextChanged{text, start, before, count->
+                    val listafiltrada = producto.filter { n->
+                        n.name.contains(text.toString(), ignoreCase = true)
+
+                    }
+
+                }
+                */
             }
 
         }.consumeGet(view.context, url)

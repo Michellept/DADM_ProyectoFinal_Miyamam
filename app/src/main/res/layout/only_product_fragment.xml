@@ -15,6 +15,7 @@
         android:layout_marginLeft="300dp"
         android:src="@drawable/carrito_de_compras" />
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -29,17 +30,17 @@
         >
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="511dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="220dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="523dp"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -104,6 +105,7 @@
                 android:text="PRECIO"
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />
+
         </LinearLayout>
 
     </LinearLayout>

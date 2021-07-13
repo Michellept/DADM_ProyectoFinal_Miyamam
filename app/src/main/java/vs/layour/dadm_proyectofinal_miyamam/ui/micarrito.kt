@@ -38,14 +38,11 @@ class micarrito : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*viewModel.getcarrito.observe(viewLifecycleOwner){
-
-            binding.listviewProductosCarrito.adapter = object :CarritoAdapter(view.context, R.layout.product_on_car, it)
-               //findNavController().navigate(R.id.action_onlyProduct_to_navigation_micarrito)
-
+        viewModel.getlistaproductos.observe(viewLifecycleOwner){
+            binding.listviewProductosCarrito.adapter = CarritoAdapter(view.context, R.layout.product_on_car, it)
         }
 
-*/
+
 
     }
 }

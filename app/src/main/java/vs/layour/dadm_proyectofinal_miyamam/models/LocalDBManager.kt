@@ -31,6 +31,7 @@ class LocalDBManager(
             """
 
             it.execSQL(sql)
+
         }
     }
 
@@ -135,5 +136,31 @@ class LocalDBManager(
 
         return resultados
     }
+    /*
+//--------------CARRITO
+    val carrito = """
+        create table carrito(
+        nombre TEXT,
+        precio TEXT
+        );
+    """.trimIndent()
 
+    @Throws
+    fun getcarrito(carrito:ListaProductoItem):ArrayList<ListaProductoItem>{
+        val db= readableDatabase
+        val sql = "SELECT * FROM carrito WHERE '${carrito.name}'"
+        val cursor = db.rawQuery(sql, null)
+
+        val resultados = ArrayList<ListaProductoItem>()
+        while(cursor.moveToNext()){
+            val carrito = ListaProductoItem(
+                cursor.getString(0),
+                cursor.getString(1)
+            )
+            resultados.add(carrito)
+        }
+        db.close()
+        return resultados
+    }
+*/
 }

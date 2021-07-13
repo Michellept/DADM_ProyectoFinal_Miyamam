@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 import vs.layour.dadm_proyectofinal_miyamam.R
 import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
 
-open class CarritoAdapter (
+ class CarritoAdapter (
     val context: Context,
     val res:Int,
     val list:ArrayList<ListaProductoItem>
@@ -42,6 +42,7 @@ open class CarritoAdapter (
             val name: TextView = itemView.findViewById(R.id.name_car)
             val precio: TextView = itemView.findViewById(R.id.precio_car)
             val btndelete: Button = itemView.findViewById(R.id.fab_delete_carrito)
+
 
             name.text = producto.name
             precio.text = producto.price

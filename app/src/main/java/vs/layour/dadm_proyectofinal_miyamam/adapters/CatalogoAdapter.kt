@@ -36,13 +36,13 @@ abstract class CatalogoAdapter(
 
             val item: CardView = itemView.findViewById(R.id.item_producto)
             val imagen: ImageView = itemView.findViewById(R.id.imageView_producto)
-            val nombre: TextView = itemView.findViewById(R.id.txt_nombreproducto)
-            val precio: TextView = itemView.findViewById(R.id.txt_precioproducto)
+           // val nombre: TextView = itemView.findViewById(R.id.txt_nombreproducto)
+            //val precio: TextView = itemView.findViewById(R.id.txt_precioproducto)
 
             //val des = myView.findViewById<TextView>(R.id.txt_categoria_pro)
 
-            nombre.text = producto.name
-            precio.text = producto.price
+            //nombre.text = producto.name
+           // precio.text = producto.price
             // des.text= Html.fromHtml(lista[position].shortDescription)
 
 
@@ -55,6 +55,7 @@ abstract class CatalogoAdapter(
 
 
           item.setOnClickListener{
+              Toast.makeText(context, "${producto.categories}", Toast.LENGTH_SHORT).show()
               verproducto(producto)
           }
 

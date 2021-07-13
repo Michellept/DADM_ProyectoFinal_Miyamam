@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
 import vs.layour.dadm_proyectofinal_miyamam.R
 import vs.layour.dadm_proyectofinal_miyamam.databinding.OnlyProductFragmentBinding
+import vs.layour.dadm_proyectofinal_miyamam.models.Carrito
 import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
 
 class OnlyProduct : Fragment() {
@@ -50,10 +52,31 @@ class OnlyProduct : Fragment() {
             binding.txtPrecioproducto.setText(it.price)
             binding.viewproductoInfoInventario.setText(it.stockStatus)
 
+            binding.fabAddcarritoOnlyproduct.setOnClickListener{
+
+                findNavController().navigate(R.id.action_onlyProduct_to_navigation_micarrito)
+
+            }
+
+
+
+
+            /*
+            var productos = ArrayList<ListaProductoItem>()
+            viewModel.getlistaproductos.observe(viewLifecycleOwner, {
+                productos = it
+            })
+            binding.fabAddcarritoOnlyproduct.setOnClickListener {
+                findNavController().navigate(R.id.action_onlyProduct_to_navigation_micarrito)
+                viewModel.getroductoSelect.observe(viewLifecycleOwner, {
+                    productos.add(it)
+                    viewModel.setlistaproductos(productos)
+                })
+
+            }*/
 
 
         })
-
 
 
     }
