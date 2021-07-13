@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
         btnRegistrar.setOnClickListener{
             val intent = Intent(this, RegistroActivity::class.java)
             Toast.makeText(this,"Accediendo a registrar", Toast.LENGTH_LONG).show()
