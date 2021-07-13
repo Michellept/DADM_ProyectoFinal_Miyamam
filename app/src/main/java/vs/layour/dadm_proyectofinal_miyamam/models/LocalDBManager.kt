@@ -136,31 +136,63 @@ class LocalDBManager(
 
         return resultados
     }
-    /*
+
 //--------------CARRITO
     val carrito = """
         create table carrito(
         nombre TEXT,
-        precio TEXT
+        precio TEXT,
+        precioT TEXT
         );
     """.trimIndent()
 
     @Throws
-    fun getcarrito(carrito:ListaProductoItem):ArrayList<ListaProductoItem>{
+    fun getCarrito(carrito:Carrito):ArrayList<Carrito>{
         val db= readableDatabase
-        val sql = "SELECT * FROM carrito WHERE '${carrito.name}'"
+        val sql = "SELECT * FROM carrito WHERE '${carrito.nombre}','${carrito.precio}','${carrito.precioT}'"
         val cursor = db.rawQuery(sql, null)
 
-        val resultados = ArrayList<ListaProductoItem>()
+        val resultados = ArrayList<Carrito>()
         while(cursor.moveToNext()){
-            val carrito = ListaProductoItem(
+            val carrito = Carrito(
                 cursor.getString(0),
-                cursor.getString(1)
+                cursor.getString(1),
+                cursor.getString(2)
             )
             resultados.add(carrito)
         }
         db.close()
         return resultados
     }
-*/
+    @Throws
+    fun altaCarrito(carrito: Carrito){
+        val db = writableDatabase
+        val sql = "INSERT INTO carrito  (nombre, precio, precioT) "+
+                "VALUES ( ${carrito.nombre}', ('${carrito.precio}', ('${carrito.precioT}',)"
+
+        db.execSQL(sql)
+        db.close()
+    }
+    @Throws
+    fun consultaCarrito():ArrayList<Carrito>{
+        val db = readableDatabase
+
+        val sql = "SELECT  nombre,precio,precioT FROM carrito"
+
+        val cursor = db.rawQuery(sql, null)
+
+        val resultados = ArrayList<Carrito>()
+        while (cursor.moveToNext()){
+            val carrito = Carrito(
+                cursor.getString(0),
+                cursor.getString(2),
+                cursor.getString(3)
+            )
+            resultados.add(carrito
+            )
+            
+        }
+        db.close()
+        return resultados
+    }
 }
