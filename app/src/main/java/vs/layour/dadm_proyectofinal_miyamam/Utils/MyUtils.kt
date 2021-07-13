@@ -12,6 +12,7 @@ import vs.layour.dadm_proyectofinal_miyamam.models.Usuario
 abstract class MyUtils {
 
     companion object {
+
         fun String.toas(c: Context) {
             Toast.makeText(c, this, Toast.LENGTH_LONG).show()
 

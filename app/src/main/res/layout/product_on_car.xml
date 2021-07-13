@@ -9,6 +9,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/item_carrito"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -33,19 +34,19 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/precio_car"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textColor="@color/design_default_color_error"
-                    android:textStyle="bold" />
-
-                <TextView
                     android:id="@+id/name_car"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="TextView"
                     android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/precio_car"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/design_default_color_error"
                     android:textStyle="bold" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton

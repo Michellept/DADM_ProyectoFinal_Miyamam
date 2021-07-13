@@ -13,5 +13,17 @@ data class Usuario(
         @SerializedName("nombre")
         val name: String,
         @SerializedName("telefono")
-        val celphone: String
+        val celphone: String,
+        @SerializedName("colonia")
+        val colonia: String,
+        @SerializedName("calle")
+        val calle: String,
+        @SerializedName("numero")
+        val numero: String,
+        @SerializedName("codigo")
+        val codigo: String,
+        @SerializedName("pais")
+        val pais: String,
+        @SerializedName("ciudad")
+        val ciudad: String
 ) : Serializable

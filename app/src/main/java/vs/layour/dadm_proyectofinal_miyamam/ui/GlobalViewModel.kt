@@ -20,5 +20,16 @@ class GlobalViewModel : ViewModel() {
 
     }
 
+    //-----------------Carrito
+    private val carrito = MutableLiveData<ArrayList<ListaProductoItem>>().apply { postValue(
+        ArrayList()
+    ) }
+
+    val getcarrito:LiveData<ArrayList<ListaProductoItem>>get() = carrito
+
+    fun setcarrito(producto: ListaProductoItem){
+        carrito.value?.add(producto)
+    }
+
 
 }

@@ -7,12 +7,12 @@
     tools:context=".ui.OnlyProduct">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fab_addcarrito_onlyproduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:layout_marginTop="190dp"
-        android:layout_marginLeft="320dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="300dp"
         android:src="@drawable/carrito_de_compras" />
 
     <com.google.android.material.appbar.AppBarLayout
@@ -91,8 +91,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="300dp"
-                android:text="$"
+                android:layout_marginLeft="280dp"
+                android:text="$Precio"
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />
 
@@ -100,7 +100,7 @@
                 android:id="@+id/txt_precioproducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="300dp"
+                android:layout_marginLeft="280dp"
                 android:text="PRECIO"
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />

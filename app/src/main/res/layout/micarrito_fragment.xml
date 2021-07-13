@@ -7,7 +7,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listview_productos"
+        android:id="@+id/listview_productos_carrito"
         android:layout_width="match_parent"
         android:layout_height="516dp"
         android:layout_marginStart="16dp"

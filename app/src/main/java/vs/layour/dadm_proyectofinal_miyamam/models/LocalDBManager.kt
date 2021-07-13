@@ -5,7 +5,12 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import kotlin.jvm.Throws
 
-class LocalDBManager(context: Context?, name: String?, factory: SQLiteDatabase.CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
+class LocalDBManager(
+    context: Context?,
+    name: String?,
+    factory: SQLiteDatabase.CursorFactory?,
+    version: Int
+) : SQLiteOpenHelper(context, name, factory, version) {
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.let {
@@ -13,8 +18,15 @@ class LocalDBManager(context: Context?, name: String?, factory: SQLiteDatabase.C
                CREATE TABLE usuario(
                     id INTEGER PRIMARY KEY,
                     usuario TEXT,
+                    contrasenia TEXT,
                     nombre TEXT,
-                    celular TEXT
+                    celular TEXT,
+                    colonia TEXT,
+                    calle TEXT,
+                    numero TEXT,
+                    codigo TEXT,
+                    pais TEXT,
+                    ciudad TEXT
                ) 
             """
 
@@ -43,7 +55,9 @@ class LocalDBManager(context: Context?, name: String?, factory: SQLiteDatabase.C
 
         db.execSQL(sql)
 
-        sql = "INSERT INTO usuario VALUES(${usuario.id},'${usuario.usr}','${usuario.name}','${usuario.celphone}')"
+        sql =
+            "INSERT INTO usuario VALUES(${usuario.id},'${usuario.usr}','${usuario.name}','${usuario.pass}','${usuario.celphone}'," +
+                    "'${usuario.colonia}','${usuario.calle}','${usuario.numero}','${usuario.codigo}','${usuario.pais}','${usuario.ciudad}')"
 
         db.execSQL(sql)
 
@@ -51,26 +65,75 @@ class LocalDBManager(context: Context?, name: String?, factory: SQLiteDatabase.C
     }
 
     @Throws
-    fun getUsr() : Usuario? {
+    fun getUsr(): Usuario? {
         val db = readableDatabase
 
         var sql = "SELECT * FROM usuario"
 
         val cursor = db.rawQuery(sql, null)
 
-        var usuario : Usuario? = null
-        if(cursor.moveToNext()) {
+        var usuario: Usuario? = null
+        if (cursor.moveToNext()) {
             usuario = Usuario(
                 cursor.getInt(0),
                 cursor.getString(1),
-                cursor.getString(1),
                 cursor.getString(2),
-                cursor.getString(3)
+                cursor.getString(3),
+                cursor.getString(4),
+                cursor.getString(5),
+                cursor.getString(6),
+                cursor.getString(7),
+                cursor.getString(8),
+                cursor.getString(9),
+                cursor.getString(10)
             )
         }
         db.close()
 
         return usuario
+    }
+
+    @Throws
+    fun altaUsuario(usuario: Usuario) {
+        val db = writableDatabase
+        val sql =
+            "INSERT INTO usuario   (id,usuario,contrasenia,nombre,celular,colonia,calle,numero,codigo,pais,ciudad)"+
+        " VALUES (${usuario.id},'${usuario.usr}','${usuario.name}','${usuario.pass}','${usuario.celphone}','${usuario.colonia}','${usuario.calle}','${usuario.numero}','${usuario.codigo}','${usuario.pais}','${usuario.ciudad}')"
+        db.execSQL(sql)
+
+        db.close()
+    }
+
+    @Throws
+    fun consultaUsuarios(): ArrayList<Usuario> {
+        val db = readableDatabase
+
+        val sql =
+            "SELECT id,usuario,nombre,contrasenia,celular,colonia,calle,numero,codigo,pais,ciudad FROM usuario"
+
+        val cursor = db.rawQuery(sql, null)
+
+        val resultados = ArrayList<Usuario>()
+        while (cursor.moveToNext()) {
+            val usuario = Usuario(
+                cursor.getInt(0),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+                cursor.getString(5),
+                cursor.getString(6),
+                cursor.getString(7),
+                cursor.getString(8),
+                cursor.getString(9),
+                cursor.getString(10)
+            )
+
+            resultados.add(usuario)
+        }
+        db.close()
+
+        return resultados
     }
 
 }

@@ -42,6 +42,7 @@ abstract class ProductoAdapter(
             val precio: TextView = itemView.findViewById(R.id.txt_precioproducto)
 
 
+
             //val des = myView.findViewById<TextView>(R.id.txt_categoria_pro)
 
             nombre.text = producto.name
@@ -58,10 +59,13 @@ abstract class ProductoAdapter(
               verproducto(producto)
           }
 
+
+
         }
     }
 
     abstract fun verproducto(producto: ListaProductoItem)
+
 }
 
 

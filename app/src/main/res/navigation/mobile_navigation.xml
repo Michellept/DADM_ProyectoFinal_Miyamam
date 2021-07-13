@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_navigation_catalogo_to_onlyProduct"
             app:destination="@id/onlyProduct" />
+        <action
+            android:id="@+id/action_navigation_catalogo_to_navigation_micarrito"
+            app:destination="@id/navigation_micarrito" />
     </fragment>
     <fragment
         android:id="@+id/navigation_micarrito"
@@ -26,5 +29,8 @@
         <action
             android:id="@+id/action_onlyProduct_to_navigation_catalogo"
             app:destination="@id/navigation_catalogo" />
+        <action
+            android:id="@+id/action_onlyProduct_to_navigation_micarrito"
+            app:destination="@id/navigation_micarrito" />
     </fragment>
 </navigation>

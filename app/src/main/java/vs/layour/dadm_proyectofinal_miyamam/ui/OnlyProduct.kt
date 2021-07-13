@@ -1,5 +1,6 @@
 package vs.layour.dadm_proyectofinal_miyamam.ui
 
+import android.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import com.squareup.picasso.Picasso
 import vs.layour.dadm_proyectofinal_miyamam.R
 import vs.layour.dadm_proyectofinal_miyamam.databinding.OnlyProductFragmentBinding
+import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
 
 class OnlyProduct : Fragment() {
 
@@ -48,10 +50,16 @@ class OnlyProduct : Fragment() {
             binding.txtPrecioproducto.setText(it.price)
             binding.viewproductoInfoInventario.setText(it.stockStatus)
 
+
+
         })
 
+
+
     }
+
 }
+
 
 
 
