@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //USUARIO
-       // database.altaUsuario(Usuario(1,"tk@gmail.com","123","Michelle","4431991778","industrial","20 de nov","67","56116","Mexico","Morelia"))
+        //database.altaUsuario(Usuario(1,"tk@gmail.com","123","Michelle","4431991778","industrial","20 de nov","67","56116","Mexico","Morelia"))
 
 
 
@@ -74,6 +74,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        }
+        btnRegistrar.setOnClickListener{
+            val intent = Intent(this, RegistroActivity::class.java)
+            Toast.makeText(this,"Accediendo a registrar", Toast.LENGTH_LONG).show()
+            startActivity(intent)
         }
 
     }

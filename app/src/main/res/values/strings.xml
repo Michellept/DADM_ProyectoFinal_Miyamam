@@ -4,6 +4,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="link">
+
+        Gracias por tu vicita\n
+        para mas informacion consulta\n
+        nuestro catalogo de contactos\n
+        Link general : https://flow.page/miyamambordados</string>
 
     <!-- API -->
     <string name="api">https://miyamamapp.herokuapp.com/</string>

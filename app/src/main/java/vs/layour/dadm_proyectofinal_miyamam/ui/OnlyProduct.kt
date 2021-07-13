@@ -8,18 +8,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.squareup.picasso.Picasso
 import vs.layour.dadm_proyectofinal_miyamam.R
+import vs.layour.dadm_proyectofinal_miyamam.Utils.MyUtils
+import vs.layour.dadm_proyectofinal_miyamam.Utils.Utils
 import vs.layour.dadm_proyectofinal_miyamam.databinding.OnlyProductFragmentBinding
 import vs.layour.dadm_proyectofinal_miyamam.models.Carrito
 import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
+import vs.layour.dadm_proyectofinal_miyamam.models.LocalDBManager
 
 class OnlyProduct : Fragment() {
 
     private val viewModel: GlobalViewModel by activityViewModels()
     private var _binding: OnlyProductFragmentBinding? = null
     private val binding get() = _binding!!
+
+
 
 
     override fun onCreateView(
@@ -33,6 +39,10 @@ class OnlyProduct : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val database = Utils.dataBaseSQL
+        val carrito =Utils.dataBaseSQL
 
         viewModel.getroductoSelect.observe(viewLifecycleOwner, {
             //binding.imageViewproducto.setImageResource(it.images)
@@ -52,11 +62,26 @@ class OnlyProduct : Fragment() {
             binding.txtPrecioproducto.setText(it.price)
             binding.viewproductoInfoInventario.setText(it.stockStatus)
 
-            binding.fabAddcarritoOnlyproduct.setOnClickListener{
-                
-                findNavController().navigate(R.id.action_onlyProduct_to_navigation_micarrito)
 
-            }
+
+            viewModel.getcarrito.observe(viewLifecycleOwner, Observer {
+                binding.fabAddcarritoOnlyproduct.setOnClickListener{
+
+/*
+                    val productos= ArrayList<Carrito>()
+                    for (i in carrito.consultaCarrito()){
+                        for (añadir in productos){
+                            if (i.nombre.equals(añadir.nombre)){
+                                productos.add(i)
+                            }
+                        }
+                    }
+*/
+                        findNavController().navigate(R.id.action_onlyProduct_to_navigation_micarrito)
+
+
+                }
+            })
 
 
 

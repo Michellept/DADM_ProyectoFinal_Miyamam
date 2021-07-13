@@ -7,13 +7,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import vs.layour.dadm_proyectofinal_miyamam.R
+import vs.layour.dadm_proyectofinal_miyamam.models.Carrito
 import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
 
- class CarritoAdapter (
+ abstract class CarritoAdapter (
     val context: Context,
     val res:Int,
     val list:ArrayList<ListaProductoItem>
@@ -41,6 +43,8 @@ import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
             val img: ImageView = itemView.findViewById(R.id.imageView_car)
             val name: TextView = itemView.findViewById(R.id.name_car)
             val precio: TextView = itemView.findViewById(R.id.precio_car)
+            val btnprecioT: Button = itemView.findViewById(R.id.button_pagar)
+            val precioT:TextView = itemView.findViewById(R.id.total_carrito)
             val btndelete: Button = itemView.findViewById(R.id.fab_delete_carrito)
 
 
@@ -51,12 +55,19 @@ import vs.layour.dadm_proyectofinal_miyamam.models.ListaProductoItem
                 Picasso.get().load(it).into(img)
             }
 
+            precioT.text = producto.price + producto.price
+
+
             btndelete.setOnClickListener{
+            }
+
+            btnprecioT.setOnClickListener {
 
             }
 
         }
     }
 
-
+     abstract fun pagarProductos(carrito: Carrito)
+     abstract fun deletProducto(carrito: Carrito)
 }

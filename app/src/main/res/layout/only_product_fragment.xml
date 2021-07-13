@@ -30,6 +30,16 @@
         >
     </com.google.android.material.appbar.AppBarLayout>
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -92,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="280dp"
+                android:layout_marginLeft="270dp"
                 android:text="$Precio"
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />
@@ -101,13 +111,30 @@
                 android:id="@+id/txt_precioproducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="280dp"
+                android:layout_marginLeft="270dp"
                 android:text="PRECIO"
                 android:textColor="@color/teal_700"
                 android:textSize="20sp" />
 
+            <Button
+                android:id="@+id/btn_comprar_onlyproduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/teal_700"
+                android:text="Comprar" />
+
+            <TextView
+                android:id="@+id/txtclic"
+                android:layout_width="372dp"
+                android:layout_height="71dp"
+                android:layout_marginTop="60dp"
+                android:autoLink="all"
+                android:clickable="true"
+                android:text="@string/link" />
         </LinearLayout>
 
     </LinearLayout>
-
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
